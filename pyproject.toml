@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bobatea5156"
+version = "0.1.0"
+description = "A simple Python package for HW00"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [
+    {name = "bobatea5156"}
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
