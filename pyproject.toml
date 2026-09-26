@@ -12,6 +12,7 @@ authors = [
     {name = "bobatea5156"}
 ]
 dependencies = [
+    "polars>=1.44.2",
     "statsmodels>=0.15.0",
 ]
 
@@ -21,4 +22,5 @@ where = ["src"]
 [dependency-groups]
 dev = [
     "build>=1.6.1",
+    "twine>=7.0.0",
 ]
