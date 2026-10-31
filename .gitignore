@@ -1,14 +1,20 @@
-# Python-generated files
+# Python
 __pycache__/
-*.py[oc]
+*.py[cod]
+*.so
+*.pyd
+*.egg-info/
+.venv/
+venv/
+
+# Build outputs
 build/
 dist/
+target/
 wheels/
-*.egg-info
 
-# Virtual environments
-.venv
-
-# Jupyter and VS Code
+# Jupyter
 .ipynb_checkpoints/
+
+# Editor
 .vscode/
