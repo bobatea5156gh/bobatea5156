@@ -134,4 +134,59 @@ class LinearRegression:
 
         
 
+# Cauchy Regression for Homework 04
+
+import torch
+import torch.nn as nn
+
+
+class CauchyRegression(nn.Module):
+    def __init__(self, n_features, c=1.0):
+        super().__init__()
+
+        if c <= 0:
+            raise ValueError("c must be positive")
+
+        self.linear = nn.Linear(n_features, 1)
+        self.c = float(c)
+
+    def forward(self, X):
+        return self.linear(X)
+
+    def cauchy_loss(self, y_pred, y_true):
+        residual = y_true - y_pred
+
+        loss = (self.c ** 2 / 2) * torch.log1p(
+            (residual / self.c) ** 2
+        )
+
+        return torch.mean(loss)
+
+    def fit(self, X, y, epochs=5000, lr=0.01):
+        optimizer = torch.optim.Adam(
+            self.parameters(), lr=lr
+        )
+
+        self.loss_history = []
+        self.train()
+
+        for epoch in range(epochs):
+            optimizer.zero_grad()
+
+            y_pred = self.forward(X)
+            loss = self.cauchy_loss(y_pred, y)
+
+            loss.backward()
+            optimizer.step()
+
+            self.loss_history.append(loss.item())
+
+        return self
+
+    def predict(self, X):
+        self.eval()
+
+        with torch.no_grad():
+            return self.forward(X)
+
         
