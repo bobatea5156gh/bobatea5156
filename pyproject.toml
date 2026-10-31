@@ -1,22 +1,39 @@
 [project]
 name = "bobatea5156"
-version = "0.1.1"
-description = "Add your description here"
+version = "0.1.2"
+description = "Python package for coursework"
 readme = "README.md"
 authors = [
     { name = "bobatea5156gh", email = "bobatea5156@gmail.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "torch",
+    "numpy",
+    "matplotlib",
+    "polars>=1.44.2",
+    "statsmodels>=0.15.0",
+]
 
 [tool.maturin]
 module-name = "bobatea5156._core"
-python-packages = ["bobatea5156"]
+python-packages = ["bobatea5156", "difftest"]
 python-source = "src"
 
 [tool.uv]
-cache-keys = [{ file = "pyproject.toml" }, { file = "src/**/*.rs" }, { file = "Cargo.toml" }, { file = "Cargo.lock" }]
+cache-keys = [
+    { file = "pyproject.toml" },
+    { file = "src/**/*.rs" },
+    { file = "Cargo.toml" },
+    { file = "Cargo.lock" },
+]
 
 [build-system]
 requires = ["maturin>=1.0,<2.0"]
 build-backend = "maturin"
+
+[dependency-groups]
+dev = [
+    "build>=1.6.1",
+    "twine>=7.0.0",
+]
