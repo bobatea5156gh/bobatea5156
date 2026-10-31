@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+*.egg-info/
+.venv/
+venv/
+
+# Build outputs
+build/
+dist/
+target/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Editor
+.vscode/
